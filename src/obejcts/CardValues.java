@@ -12,6 +12,7 @@ public class CardValues {
         cardValues.put(Rank.FOUR,4);
         cardValues.put(Rank.FIVE,5);
         cardValues.put(Rank.SIX,6);
+        cardValues.put(Rank.SEVEN,7);
         cardValues.put(Rank.EIGHT,8);
         cardValues.put(Rank.NINE,9);
         cardValues.put(Rank.TEN,10);

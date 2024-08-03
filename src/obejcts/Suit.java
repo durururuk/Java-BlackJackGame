@@ -1,7 +1,7 @@
 package src.obejcts;
 
 public enum Suit {
-    HEARTS("H"), DIAMONDS("D"), CLUBS("C"), SPADES("S");
+    HEARTS("h"), DIAMONDS("d"), CLUBS("c"), SPADES("s");
 
     private final String symbol;
 
