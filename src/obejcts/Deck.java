@@ -14,7 +14,7 @@ public class Deck {
         cards = new ArrayList<>();
         for (Suit suit : Suit.values()) {
             for (Rank rank : Rank.values()) {
-                cards.add (new Card(rank, suit));
+                cards.add(new Card(rank, suit));
             }
         }
         this.shuffle();

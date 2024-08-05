@@ -1,5 +1,6 @@
 package src.obejcts;
 
+import src.Game;
 import src.exceptions.DeckIsEmptyException;
 
 import java.util.ArrayList;
@@ -30,21 +31,20 @@ public class Dealer {
     }
 
     public void play(Deck deck) throws DeckIsEmptyException {
-        int result;
         System.out.println("딜러가 플레이합니다.");
 
         //카드를 두 장 드로우 합니다.
         addCard(deck.drawCard());
         addCard(deck.drawCard());
 
-        System.out.println("딜러가 뽑은 카드는 다음과 같습니다");
-        result = resultCalculator();
+        System.out.println("딜러가 뽑은 카드는 다음과 같습니다.");
+        int result = Game.resultCalculator(getHand(),0);
         System.out.println("\n 합계 : " + result);
 
-        while(result < 17) {
+        while (result < 17) {
             System.out.println("딜러 : 히트");
             addCard(deck.drawCard());
-            result = resultCalculator();
+            result = Game.resultCalculator(getHand(),0);
             System.out.println("\n 합계 : " + result);
         }
 
@@ -55,25 +55,6 @@ public class Dealer {
             System.out.println("딜러 턴 종료.");
         }
         setdResult(result);
-    }
-
-    public int resultCalculator () {
-        int aceCount = 0;
-        int result = 0;
-        System.out.print("[ ");
-        for(Card card : hand) {
-            System.out.printf("(%s) ",card.getCardSymbol());
-            if (card.getRank().toString().equals("ACE")) {
-                aceCount++;
-            }
-            result += card.getValue();
-        }
-        while (result > 21 && aceCount > 0) {
-            result -= 10;
-            aceCount--;
-        }
-        System.out.print("]");
-        return result;
     }
 
 
