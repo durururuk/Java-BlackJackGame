@@ -24,6 +24,11 @@ public class Game {
         System.out.println("[블랙잭 게임을 시작합니다..]");
 
         while (retry) {
+                if(player.getBalance() < 50) {
+                    System.out.println("최소 베팅 칩은 50개입니다. 칩이 없으면 플레이 할 수 없습니다.");
+                    break;
+                }
+
             try {
                 //플레이어 베팅
                 System.out.printf("\n플레이어의 현재 칩은 %d개 입니다.\n", player.getBalance());
