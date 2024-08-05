@@ -2,7 +2,6 @@ package src.obejcts;
 
 import src.Game;
 import src.exceptions.DeckIsEmptyException;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -15,15 +14,10 @@ public class Player {
     int pResult = 0;
 
     public Player() {
-        this.balance = balance;
         this.hand = new ArrayList<>();
     }
 
     //Getter, Setter
-    public void setpResult(int result) {
-        this.pResult = result;
-    }
-
     public int getpResult() {
         return pResult;
     }
@@ -34,10 +28,6 @@ public class Player {
 
     public void setBalance(int balance) {
         this.balance = balance;
-    }
-
-    public List<Card> getHand() {
-        return hand;
     }
 
     public void initialize() {

@@ -50,9 +50,9 @@ public class Game {
 
                 Thread.sleep(500);
                 player.play(deck);
-                System.out.println("");
+                System.out.println();
                 dealer.play(deck);
-                System.out.println("");
+                System.out.println();
                 Thread.sleep(1000);
                 whoWon();
                 Thread.sleep(1000);
@@ -88,7 +88,7 @@ public class Game {
     public static int resultCalculator(List<Card> hand, int ori) {
         int aceCount = 0;
         int result = 0;
-        int result2 = 0;
+        int result2;
         for (Card card : hand) {
             if (card.getRank().toString().equals("ACE")) {
                 aceCount++;

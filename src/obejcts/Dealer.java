@@ -14,16 +14,8 @@ public class Dealer {
         return hand;
     }
 
-    public void setHand(List<Card> hand) {
-        this.hand = hand;
-    }
-
     public int getdResult() {
         return dResult;
-    }
-
-    public void setdResult(int dResult) {
-        this.dResult = dResult;
     }
 
     public void addCard(Card card) {
