@@ -29,34 +29,52 @@ public class Dealer {
     public void addCard(Card card) {
         hand.add(card);
     }
+    //플레이
+    public void play(Deck deck) throws DeckIsEmptyException, InterruptedException {
+        try {
+            Thread.sleep(500);
+            System.out.println("딜러가 플레이합니다. \n");
 
-    public void play(Deck deck) throws DeckIsEmptyException {
-        System.out.println("딜러가 플레이합니다.");
-
-        //카드를 두 장 드로우 합니다.
-        addCard(deck.drawCard());
-        addCard(deck.drawCard());
-
-        System.out.println("딜러가 뽑은 카드는 다음과 같습니다.");
-        int result = Game.resultCalculator(getHand(),0);
-        System.out.println("\n 합계 : " + result);
-
-        while (result < 17) {
-            System.out.println("딜러 : 히트");
-            addCard(deck.drawCard());
-            result = Game.resultCalculator(getHand(),0);
+            System.out.println("딜러가 뽑은 카드는 다음과 같습니다.");
+            Thread.sleep(500);
+            Game.showHand(hand);
+            Thread.sleep(500);
+            int result = Game.resultCalculator(getHand(), 0);
             System.out.println("\n 합계 : " + result);
+
+            while (result < 17) {
+                Thread.sleep(1000);
+                System.out.println("딜러 : 히트");
+                System.out.println("딜러가 한 장 더 드로우합니다.");
+                addCard(deck.drawCard());
+                Thread.sleep(1000);
+                Game.showHand(hand);
+                result = Game.resultCalculator(getHand(), 0);
+                Thread.sleep(500);
+                System.out.println("\n 합계 : " + result);
+            }
+            Thread.sleep(1000);
+            if (result > 21) {
+                System.out.println("딜러 버스트!!");
+                dResult = 0;
+            } else {
+                dResult = result;
+                if(dResult == 21) {
+                    System.out.println("!!딜러 블랙잭!!");
+                }
+                System.out.println("\n딜러의 최종 점수 : " + dResult);
+
+            }
+        } catch(InterruptedException e) {
+            System.out.println("오류가 발생했습니다.");
         }
 
-        if (result > 21) {
-            System.out.println("딜러 버스트!!");
-            result = 0;
-        } else {
-            System.out.println("딜러 턴 종료.");
-        }
-        setdResult(result);
     }
 
+    public void initialize() {
+        dResult = 0;
+        this.hand = new ArrayList<>();
+    }
 
 
 }
