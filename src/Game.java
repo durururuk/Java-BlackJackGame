@@ -33,6 +33,7 @@ public class Game {
                     bet(input);
                 } catch (OverBalanceBettingException e) {
                     System.out.println("가지고 있는 칩보다 많이 베팅 할 수는 없습니다");
+                    break;
                 }
 
                 Thread.sleep(500);
